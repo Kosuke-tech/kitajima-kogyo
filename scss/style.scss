@@ -1,0 +1,893 @@
+@charset "UTF-8";
+@use "reset";
+@use "base";
+@use "layout";
+@use "variable" as var;
+@use "mixin" as mix;
+@use "utility";
+@use "component";
+
+
+/*----------------------------------------
+        Variables
+----------------------------------------*/
+:root {
+    --gray: #728498;
+    --light-gray: #EEEEEE;
+    --black: #333333;
+    --white: #FFFFFF;
+}
+
+
+
+
+/*----------------------------------------
+        ヘッダー
+----------------------------------------*/
+
+// topBar
+
+.topBar {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+    &__logoWrapper {
+        @include mix.media_query (var.$x-small) {
+            align-self: flex-start;
+        }
+    }
+    &__logo {
+        width: 130px;
+    }
+    &__itemWrapper {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        @include mix.media_query (var.$small) {
+            flex-direction: column-reverse;
+            gap: 15px;
+        }
+    }
+    &__telInner {
+        display: flex;
+        @include mix.media_query (var.$small) {
+            align-self: flex-end;
+        }
+    }
+    &__iconInner {
+        display: flex;
+        @include mix.media_query (var.$small) {
+            align-self: flex-end;
+        }
+    }
+    &__telInner {
+        &:hover {
+            transform: scale(1.1);
+            // transition: all ease .5s;
+        }
+    }
+    &__telText {
+        margin-left: 10px;
+        white-space: nowrap;
+        @include mix.media_query (var.$small) {
+            align-self: flex-end;
+        }
+    }
+    &__telIconWrap {
+        margin-left: 60px;
+        @include mix.media_query (var.$small) {
+            margin-left: 0;
+        }
+    }
+    &__telText {
+        font-weight: bold;
+    }
+    &__igIconWrap {
+        margin-left: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        color: var(--black);
+        &:hover {
+            background: radial-gradient(circle at 30% 107%, 
+            #fdf497 0%, #fdf497 5%, #fd5949 45%, 
+            #d6249f 60%, #285AEB 90%);
+            border-radius: 10px;
+            transform: scale(1.1);
+            transition: all ease .5s;
+        }
+        @include mix.media_query (var.$small) {
+            background: radial-gradient(circle at 30% 107%, 
+            #fdf497 0%, #fdf497 5%, #fd5949 45%, 
+            #d6249f 60%, #285AEB 90%);
+            border-radius: 10px;
+        }
+    }
+    &__igIcon {
+        font-size: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        @include mix.media_query (var.$small) {
+            color: var(--white);
+        }
+    }
+    &__lineIconWrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+    }
+    &__lineIcon {
+        font-size: 30px;
+        @include mix.media_query (var.$small) {
+            color: #00B900;
+            transform: scale(1.35);
+            &:hover {
+                transform: scale(1.4);
+            }
+        }
+    }
+}
+
+.fa-square-line:hover {
+    color: #00B900;
+    transition: all ease .5s;
+    transform: scale(1.35);
+}
+
+.fa-instagram {
+	&:hover {
+        color: #FFF;
+	}
+}
+
+// headerNav
+
+.headerNav {
+    background: var(--black);
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &__list {
+        display: flex;
+        gap: 40px;
+        @include mix.media_query (var.$small) {
+            gap: 20px;
+        }
+        @include mix.media_query (var.$x-small) {
+            gap: 10px;
+            justify-content: center;
+        }
+    }
+    &__item {
+        &:hover {
+            opacity: .8;
+            transition: all ease .3s;
+            transform: scale(1.05);
+            text-decoration: underline;
+            color: var(--white);
+        }
+    }
+    &__link {
+        color: var(--white);
+        font-size: .875rem;
+        white-space: nowrap;
+        @include mix.media_query (var.$small) {
+            font-size: .625rem;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .5rem;
+        }
+    }
+}
+
+
+/*----------------------------------------
+        キービジュアル
+----------------------------------------*/
+
+.keyVisual {
+    margin-bottom: 200px;
+    @include mix.media_query (var.$medium) {
+        margin-bottom: 150px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-bottom: 50px;
+    }
+    &__img1 {
+        width: 100vw;
+        height: 600px;
+        object-fit: cover;
+        object-position: center 20%;
+        @include mix.media_query (var.$small) {
+            height: 300px;
+        }
+    }
+    &__img2 {
+        width: 100vw;
+        height: 600px;
+        object-fit: cover;
+        object-position: 60% 10%;
+        @include mix.media_query (var.$small) {
+            height: 300px;
+        }
+    }
+    &__img3 {
+        width: 100vw;
+        height: 600px;
+        object-fit: cover;
+        object-position: center 43%;
+        @include mix.media_query (var.$small) {
+            height: 300px;
+        }
+    }
+    &__img4 {
+        width: 100vw;
+        height: 600px;
+        object-fit: cover;
+        object-position: center 20%;
+        @include mix.media_query (var.$small) {
+            height: 300px;
+        }
+    }
+}
+
+
+/*----------------------------------------
+    私たちについて
+----------------------------------------*/
+
+//  .about
+
+.about {
+    margin-bottom: 150px;
+    @include mix.media_query (var.$medium) {
+        margin-bottom: 125px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-bottom: 75px;
+    }
+    &__wrapper {
+        display: flex;
+        gap: 50px;
+        @include mix.media_query (var.$medium) {
+            flex-direction: column-reverse;
+        }
+        @include mix.media_query (var.$x-small) {
+            gap: 20px;
+        }
+    }
+    &__textContentWrap {
+        flex: 1 1 500px;
+        @include mix.media_query (var.$small) {
+            flex: 1 1 auto;
+        }
+        @include mix.media_query (var.$x-small) {
+            flex: 1 1 auto;
+        }
+    }
+    &__imgWrap {
+        flex: 1 1 500px;
+        align-self: center;
+        @include mix.media_query (var.$large) {
+             flex: 1 1 auto;
+            width: 90vw;
+        }
+        @include mix.media_query (var.$small) {
+            // width: 90vw;
+        }
+    }
+    &__img {
+        width: 100%;
+        object-fit: cover;
+        @include mix.media_query (var.$medium) {
+            height: 300px;
+        }
+        @include mix.media_query (var.$small) {
+            // flex: 1 1 auto;
+            // height: 250px;
+        }
+        @include mix.media_query (var.$x-small) {
+            // flex: 1 1 auto;
+            // height: 200px;
+        }
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 60px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+    }
+    &__subTitle {
+        font-size: 1.125rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 15px;
+        white-space: nowrap;
+        @include mix.media_query (var.$small) {
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .75rem;
+            margin-bottom: 30px;
+        }
+    }
+    &__text {
+        text-align: center;
+        font-size: .875rem;
+        @include mix.media_query (var.$small) {
+            font-size: .75rem;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .625rem;
+        }
+    }
+    &__img {
+        align-self: center;
+    }
+    &__btnWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+    }
+}
+
+/*----------------------------------------
+    事業内容
+----------------------------------------*/
+
+//  .business
+
+.business {
+    margin-bottom: 150px;
+    @include mix.media_query (var.$medium) {
+        margin-bottom: 125px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-bottom: 75px;
+    }
+    &__title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+        margin-bottom: 80px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+        @include mix.media_query (var.$small) {
+            flex-direction: column;
+            gap: 50px;
+        }
+        @include mix.media_query (var.$small) {
+            gap: 30px;
+        }
+    }
+    &__contentBox {
+        flex: 1 1 350px;
+    }
+    &__img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    &__subTitle {
+        font-size: 1.25rem;
+        align-self: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+        @include mix.media_query (var.$small) {
+            font-size: 1rem;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .75rem;
+        }
+    }
+    &__textWrap {
+        display: flex;
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+        width: 80%;
+        margin-top: 20px;
+    }
+    &__text {
+        font-size: .875rem;
+        text-align: center;
+        @include mix.media_query (var.$small) {
+            font-size: .75rem;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .625rem;
+        }
+    }
+    &__btnWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+}
+
+
+/*----------------------------------------
+    メンバー紹介
+----------------------------------------*/
+
+//  .member
+
+.member {
+    margin-bottom: 150px;
+    @include mix.media_query (var.$medium) {
+        margin-bottom: 125px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-bottom: 75px;
+    }
+    &__title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+        margin-bottom: 80px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+        @include mix.media_query (var.$small) {
+            flex-direction: column;
+            gap: 50px;
+        }
+        @include mix.media_query (var.$small) {
+            gap: 30px;
+        }
+    }
+    &__contentBox {
+        flex: 1 1 350px;
+        @include mix.media_query (var.$small) {
+            flex: 1 1 auto;
+        }
+    }
+    &__img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        @include mix.media_query (var.$small) {
+            height: 400px;
+        }
+    }
+    &__contentsWrap {
+        display: flex;
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    &__subTitle {
+        align-self: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    &__textWrap {
+        margin-top: 10px;
+    }
+    &__name {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    &__age {
+        font-size: 0.75rem;
+    }
+    &__text {
+        font-size: .875rem;
+        @include mix.media_query (var.$small) {
+            font-size: .75rem;
+        }
+        
+    }
+    &__btnWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+}
+
+/*----------------------------------------
+    メンバー紹介の個別の画像トリミング
+----------------------------------------*/
+
+.member1 {
+    object-position: center 75%;
+}
+.member2 {
+    object-position: center 5%;
+}
+.member3 {
+    object-position: center 40%;
+}
+
+/*----------------------------------------
+    採用情報
+----------------------------------------*/
+
+//  .recruit
+
+.recruit {
+    &__title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 80px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+    }
+    &__imgWrap {
+        margin-bottom: 20px;
+    }
+    &__textWrap {
+        width: 80%;
+        margin: 0px auto 100px auto;
+        background: url('../img/background2.png') no-repeat center center / cover;
+        border-radius: 20px;
+        border: 1px solid var(--light-gray);
+        position: relative;
+        padding: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include mix.media_query (var.$large) {
+            width: 100%;
+        }
+        @include mix.media_query (var.$x-small) {
+            width: 100%;
+            background: none;
+            border: none;
+        }
+    }
+    &__overlay {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px); 
+        -webkit-backdrop-filter: blur(15px); /* Safari用 */
+        padding: 35px 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        color: #333;
+        line-height: 1.8;
+    }
+    &__subTitle {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 15px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4px);
+        display: inline-block;
+        @include mix.media_query (var.$medium) {
+            font-size: 1.25rem;
+            white-space: nowrap;
+        }
+        @include mix.media_query (var.$small) {
+            font-size: .875rem;
+            white-space: nowrap;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .625rem;
+            white-space: nowrap;
+        }
+    }
+    &__text {
+        text-align: center;
+        margin-bottom: 50px;
+        @include mix.media_query (var.$small) {
+            font-size: .75rem;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: .625rem;
+        }
+    }
+    &__btnWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    &__bold {
+        font-weight: bold;
+    }
+}
+.spOnlyBr {
+    display: none;
+    @include mix.media_query (var.$x-small) {
+        display: inline;
+    }
+}
+
+// .jobDescriptionPc
+
+.jobDescriptionPc {
+    &__table {
+        width: 100%;
+        border-spacing: 20px 30px;
+        margin-bottom: 50px;
+    }
+    &__title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    &__body {
+        background: var(--white);
+    }
+    &__row {
+        font-size: .875rem;
+    }
+    &__header {
+        white-space: nowrap;
+        padding: 5px 10px;
+        vertical-align: middle;
+        text-align-last: left;
+        border: 1px solid var(--gray);
+    }
+    &__data {
+        width: 100%;
+        padding:5px 10px;
+        border: 1px solid var(--gray);
+    }
+}
+
+// .line
+
+.linePc {
+    @include mix.media_query (var.$x-small) {
+        display: none;
+    }
+    &__qr {
+        margin-top: 30px;
+    }
+}
+
+.lineSp {
+    display: none;
+    @include mix.media_query (var.$x-small) {
+        display: block;
+    }
+    &__iconWrap {
+        text-align: center;
+        margin-top: 30px;
+    }
+    &__icon {
+        background: var(--white);
+        color: #00B900;
+    }
+}
+
+/*----------------------------------------
+    サイドバー
+----------------------------------------*/
+
+//  .president
+
+.president {
+    margin-bottom: 150px;
+    margin-top: 60px;
+    text-align: center;
+    @include mix.media_query (var.$large) {
+        margin-top: 0;
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$medium) {
+        margin-top: 0;
+        margin-bottom: 80px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-top: 0;
+        margin-bottom: 60px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-top: 0;
+        margin-bottom:40px;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            // margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            // margin-bottom: 30px;
+        }
+    }
+    &__imgWrap {
+        margin-bottom: 30px;
+    }
+    &__img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        object-position: center 20%;
+        border-radius: 50%;
+        background-color: var(--light-gray);
+    }
+    &__name {
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__profile{
+        font-size: .875rem;
+    }
+}
+
+//  .administrative
+
+.administrative {
+    margin-bottom: 150px;
+    margin-top: 60px;
+    text-align: center;
+    @include mix.media_query (var.$large) {
+        margin-top: 0;
+        margin-bottom: 100px;
+    }
+    @include mix.media_query (var.$medium) {
+        margin-top: 0;
+        margin-bottom: 80px;
+    }
+    @include mix.media_query (var.$small) {
+        margin-top: 0;
+        margin-bottom: 60px;
+    }
+    @include mix.media_query (var.$x-small) {
+        margin-top: 0;
+        margin-bottom:40px;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        @include mix.media_query (var.$small) {
+            font-size: 1.5rem;
+            // margin-bottom: 45px;
+        }
+        @include mix.media_query (var.$x-small) {
+            font-size: 1rem;
+            // margin-bottom: 30px;
+        }
+    }
+    &__imgWrap {
+        margin-bottom: 30px;
+    }
+    &__img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        object-position: 50% 80%;
+        border-radius: 50%;
+        background-color: var(--light-gray);
+    }
+    &__name {
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__profile {
+        font-size: .875rem;
+    }
+}
+
+
+/*----------------------------------------
+    フッター
+----------------------------------------*/
+
+//  .footer
+.footer {
+    // margin-top: 150px;
+    background: var(--black);
+    &__wrapper {
+        padding-top: 50px;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-around;
+        @include mix.media_query (var.$x-small) {
+            flex-direction: column;
+        }
+    }
+    &__nav {
+        @include mix.media_query (var.$x-small) {
+            align-self: center;
+        }
+    }
+    &__logoWrap {
+        align-self: center;
+        @include mix.media_query (var.$x-small) {
+            margin-bottom: 50px;
+        }
+    }
+    &__logo {
+        width: 130px;
+    }
+    &__navList {
+        @include mix.media_query (var.$x-small) {
+            justify-self: center;
+        }
+    }
+    &__navItem {
+        border-bottom: 1px solid var(--white);
+        width: 200px;
+    }
+    &__navLink {
+        padding-left: 20px;
+        color: var(--white);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__copy {
+        display: block;
+        color: var(--white);
+        font-size: .75rem;
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 15px;
+    }
+}

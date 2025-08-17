@@ -1,0 +1,39 @@
+@use "variable" as var;
+@use "mixin" as mix;
+
+
+/*---------------------------------------
+*   .blContainer(共通)
+*---------------------------------------*/
+
+.blContainer {
+    max-width: 1280px;
+    width: 92%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*----------------------------------------
+    サイドバーレイアウト
+----------------------------------------*/
+
+.flexContainer {
+    display: flex;
+    gap: 40px;
+    @include mix.media_query (var.$large) {
+        flex-direction: column-reverse;
+    }
+    &__contents {
+        flex: 2 2 auto;
+    }
+    &__sidebar {
+        flex: 0 0 350px;
+        @include mix.media_query (var.$large) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        @include mix.media_query (var.$small) {
+            flex-direction: column;
+        }
+    }
+}
